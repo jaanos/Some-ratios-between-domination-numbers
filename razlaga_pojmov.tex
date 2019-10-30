@@ -1,0 +1,36 @@
+  \documentclass[12pt,a4paper]{amsart}
+% ukazi za delo s slovenscino -- izberi kodiranje, ki ti ustreza
+\usepackage[slovene]{babel}
+%\usepackage[cp1250]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{url}
+%\usepackage[normalem]{ulem}
+\usepackage[dvipsnames,usenames]{color}
+
+
+\textwidth 15cm
+\textheight 24cm
+\oddsidemargin.5cm
+\evensidemargin.5cm
+\topmargin-5mm
+\addtolength{\footskip}{10pt}
+\pagestyle{plain}
+\overfullrule=15pt 
+
+\begin{document}
+
+\section{Razlaga pojmov}
+
+\textit{Graf G} je množica točk v prostoru in povezav med temi točkami. Označimo ga z $G=(V, E)$, kjer je $V(G)$ množica točk in $E(G)$ množica povezav grafa $G$.
+\textit{Odprta okolica ali soseščina N} vozlišča $v$ je množica vozlišč, ki je sosedna vozlišču $v$, torej $N(v) =\{ u\in V: uv\in E \}$. \textit{Kartezični produkt grafov} $G_1 = (V_1, E_1)$ in $G_2 = (V_2, E_2)$ je graf $G = G_1 \square G_2$, ki ima množico točk $ V(G) = V_1 \times V_2$ in množico povezav $ E(G)$, kjer je $(u,v)(x,y) \in E(G)$, če je $ u=x $ in $vy \in E(G_2) $ ali $ux \in E(G_1)$ in $v = y$.
+\textit{Dominantna množica $ D \subseteq V(G) $} grafa $G$ je takšna množica, da ima vsako vozlišče grafa, ki ni v $D$ $( v \in V(G) \setminus D)$, soseda v $D$. Z drugimi besedami, vsako vozlišče  $v \in V(G)$ je ali  element množice $D$ ali pa je sosednje kakemu vozlišču, ki pripada množici $D$.  \\ \textit{ Dominantno število $\gamma(G) $} je moč najmanjše dominantne množice grafa $G$. \\
+Množica $S$ je \textit{totalno dominantna}, če je $ N(S) = V(G)$, kar pomeni, da je vsako vozlišče iz $ V(G)$ sosednje vozlišču iz množice $S$. \\
+ Z \textit{$ \gamma_t $ }označujemo \textit{totalno dominantno število}, ki predstavlja velikost najmanjše totalno dominantne množice. \\
+%Množica $S \subseteq V(G) $ je\textit{ k-dominantna množica}, če za vsako vozlišče  $v \in V(G)$ velja, da je  $v \in S$ ali obstaja  $u \in S$, ki je na razdalji največ k od vozlišča v. Z $ \gamma_k (G) $ bomo označevali k-dominantno število grafa G, ki predstavlja moč najmanjše k-dominantne množice v G.\\
+Naj bo $G=(V, E)$ graf in $f: V \to P (\{1,2\dots,k\})$ funkcija, ki vsakemu vozlišču iz $V$ priredi množico barv iz $ \{1,2\dots,k\}$. Če za vsak $v \in V$ za katerega je $ f(v) = \emptyset $ velja $ \bigcup_{u \in N(v) } f(u) = \{1,2\dots,k\}$ potem f imenujemo\textit{  k-mavrična dominantna funkcija } grafa $G$, krajše kRDF funkcija. \textit{Težo $w(f)$ } funkcije f, definiramo z $w(f) = \sum_{v \in V} \mid f(v)\mid$. Najmanjša vrednost mavrične dominantne funkcije grafa $G$ se imenuje \textit{k-mavrično dominanto število}, in jo označimo z $\gamma_{rk} (g)$.\\
+Za graf $G$ je \textit{k-mavrično totalno dominantna funkcija} f, krajše kRTDF,  k-mavrična dominantna funkcija s pogojem, da podgraf grafa G, ki ga določa množica $\{v \in V(G) \mid f(v) \neq \emptyset \}$ nima izoliranih vozlišč. Teža funkcije kRTDF je  $w(f) = \sum_{v \in V} \mid f(v)\mid$. Za dan graf G, imenujemo težo najmanjše kRTDF funkcije \textit{k-mavrično totalno dominantno število}, in jo označimo z  $\gamma_{rkt} (g)$. 
+
+
+\end{document}
