@@ -17,7 +17,7 @@
 \topmargin-5mm
 \addtolength{\footskip}{10pt}
 \pagestyle{plain}
-\overfullrule=15pt 
+\overfullrule=15pt
 
 \begin{document}
 
@@ -28,9 +28,43 @@
 \textit{Dominantna množica $ D \subseteq V(G) $} grafa $G$ je takšna množica, da ima vsako vozlišče grafa, ki ni v $D$ $( v \in V(G) \setminus D)$, soseda v $D$. Z drugimi besedami, vsako vozlišče  $v \in V(G)$ je ali  element množice $D$ ali pa je sosednje kakemu vozlišču, ki pripada množici $D$.  \\ \textit{ Dominantno število $\gamma(G) $} je moč najmanjše dominantne množice grafa $G$. \\
 Množica $S$ je \textit{totalno dominantna}, če je $ N(S) = V(G)$, kar pomeni, da je vsako vozlišče iz $ V(G)$ sosednje vozlišču iz množice $S$. \\
  Z \textit{$ \gamma_t $ }označujemo \textit{totalno dominantno število}, ki predstavlja velikost najmanjše totalno dominantne množice. \\
+ Podmnožica $S \subset V(G)$ je $\gamma_t$-set, če je to totalno dominantna množica grafa G, z močjo $\gamma_t(G)$.\\
 %Množica $S \subseteq V(G) $ je\textit{ k-dominantna množica}, če za vsako vozlišče  $v \in V(G)$ velja, da je  $v \in S$ ali obstaja  $u \in S$, ki je na razdalji največ k od vozlišča v. Z $ \gamma_k (G) $ bomo označevali k-dominantno število grafa G, ki predstavlja moč najmanjše k-dominantne množice v G.\\
-Naj bo $G=(V, E)$ graf in $f: V \to P (\{1,2\dots,k\})$ funkcija, ki vsakemu vozlišču iz $V$ priredi množico barv iz $ \{1,2\dots,k\}$. Če za vsak $v \in V$ za katerega je $ f(v) = \emptyset $ velja $ \bigcup_{u \in N(v) } f(u) = \{1,2\dots,k\}$ potem f imenujemo\textit{  k-mavrična dominantna funkcija } grafa $G$, krajše kRDF funkcija. \textit{Težo $w(f)$ } funkcije f, definiramo z $w(f) = \sum_{v \in V} \mid f(v)\mid$. Najmanjša vrednost mavrične dominantne funkcije grafa $G$ se imenuje \textit{k-mavrično dominanto število}, in jo označimo z $\gamma_{rk} (g)$.\\
-Za graf $G$ je \textit{k-mavrično totalno dominantna funkcija} f, krajše kRTDF,  k-mavrična dominantna funkcija s pogojem, da podgraf grafa G, ki ga določa množica $\{v \in V(G) \mid f(v) \neq \emptyset \}$ nima izoliranih vozlišč. Teža funkcije kRTDF je  $w(f) = \sum_{v \in V} \mid f(v)\mid$. Za dan graf G, imenujemo težo najmanjše kRTDF funkcije \textit{k-mavrično totalno dominantno število}, in jo označimo z  $\gamma_{rkt} (g)$. 
+Naj bo $G=(V, E)$ graf in $f: V \to P (\{1,2\dots,k\})$ funkcija, ki vsakemu vozlišču iz $V$ priredi množico barv iz $ \{1,2\dots,k\}$. Če za vsak $v \in V$ za katerega je $ f(v) = \emptyset $ velja $ \bigcup_{u \in N(v) } f(u) = \{1,2\dots,k\}$ potem f imenujemo\textit{  k-mavrična dominantna funkcija } grafa $G$, krajše kRDF funkcija. \textit{Težo $\omega(f)$} funkcije f, definiramo z $\omega(f) = \sum_{v \in V} \mid f(v)\mid$. Najmanjša vrednost mavrične dominantne funkcije grafa $G$ se imenuje \textit{k-mavrično dominanto število}, in jo označimo z $\gamma_{rk} (g)$.\\
+Za graf $G$ je \textit{k-mavrično totalno dominantna funkcija} f, krajše kRTDF,  k-mavrična dominantna funkcija s pogojem, da podgraf grafa G, ki ga določa množica $\{v \in V(G) \mid f(v) \neq \emptyset \}$ nima izoliranih vozlišč. Teža funkcije kRTDF je  $\omega(f) = \sum_{v \in V} \mid f(v)\mid$. Za dan graf G, imenujemo težo najmanjše kRTDF funkcije \textit{k-mavrično totalno dominantno število}, in jo označimo z  $\gamma_{rkt} (G)$.
+
+\section{Dani problem}
+
+1.
+Najdi funkcijo $b(k)$, da za $k \geqq 3$, za katero je dana neenakost ozka:
+\begin{equation}
+  b(k) \cdot \gamma_t \geqq \gamma_{krt}(G).
+\end{equation}
+Z drugimi besedami, najdi $b(k) = \inf_G \frac{\gamma_{krt}(G)}{\gamma_t(G)}$.
+
+2.
+Najdi funkcijo $a(k)$, da za $k \geqq 3$, za katero je dana neenakost ozka:
+\begin{equation}
+  \gamma_{krt}(G) \geqq a(k) \cdot \gamma_{kr}(G).
+\end{equation}
+Z drugimi besedami, najdi $a(k) = \sup_G \frac{\gamma_{krt}(G)}{\gamma_{kr}(G)}$
+
+\pagebreak
+
+\section{Neenakosti, dokazane v pdfju}
+Total k-Rainbow domination numbers in graphs
+
+\subsection{Izrek 2}
+Naj bo $k \geqq 2, k\in \mathbb N$ in $G$ povezani graf stopnje $n \leqq k$.
+Potem:
+\begin{equation}
+  \gamma_t (G) \leqq \gamma_{trk}(G) \leqq k\cdot \gamma_t(G).
+\end{equation}
+ Zanima nas le zgornja meja neenakosti, saj je to rešitev prvega zastavljenega problema.
+\proof
+Naj bo $S$ $\gamma_t(G)$ set in definiramo $g: V(G) \rightarrow 2^{[k]}$, kjer $g(x) = \{1,2,\ldots,k\}$ za $x \in S$ in $g(x) = \emptyset$ za $x \in V(G)\backslash S$. Torej je $g$ kRTFD za G in $\gamma_{trk}(G) \leqq \omega(g) = k\cdot \gamma_t(G)$
+\endproof
+Enakost je dosežena natanko tedaj, ko ima $G$ $\gamma_{trk}(G)$ funkcijo, $f$, da je za $\forall v \in V(G)$ ali $f(v) = \{1,2,\ldots,k\}$ ali $f(v) = \emptyset$.
 
 
 \end{document}
